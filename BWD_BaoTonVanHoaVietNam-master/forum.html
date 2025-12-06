@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diễn đàn - Di Sản Việt</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Tailwind CSS CDN for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- React and Babel CDNs -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-book-open"></i>
+                <h1>Di Sản Việt</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="collections.html">Bộ sưu tập</a></li>
+                    <li><a href="map.html">Bản đồ di sản</a></li>
+                    <li><a href="stories.html">Câu chuyện</a></li>
+                    <li><a href="contribute.html">Đóng góp</a></li>
+                    <li><a href="about.html">Giới thiệu</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Forum Section -->
+    <section class="forum py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="section-header text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800">Diễn đàn thảo luận</h2>
+                <p class="text-lg text-gray-600">Tham gia thảo luận, chia sẻ kiến thức và kết nối với cộng đồng yêu thích di sản văn hóa Việt Nam.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <!-- New Post Form -->
+                <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Đăng bài thảo luận mới</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="post-title" class="block text-sm font-medium text-gray-700">Tiêu đề</label>
+                            <input type="text" id="post-title" class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Nhập tiêu đề bài thảo luận">
+                        </div>
+                        <div>
+                            <label for="post-content" class="block text-sm font-medium text-gray-700">Nội dung</label>
+                            <textarea id="post-content" rows="4" class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Chia sẻ suy nghĩ của bạn về di sản văn hóa"></textarea>
+                        </div>
+                        <div class="text-right">
+                            <button id="submit-post" class="btn primary-btn inline-block px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">Đăng bài</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Discussion Threads -->
+                <div id="forum-posts" class="space-y-6"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta py-12 bg-blue-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold">Tham gia cộng đồng bảo tồn di sản</h2>
+            <p class="text-lg mt-2">Kết nối với những người đam mê văn hóa và cùng nhau lan tỏa giá trị di sản Việt Nam.</p>
+            <div class="mt-6">
+                <a href="contribute.html" class="btn outline-white-btn inline-block px-6 py-3 border border-white text-white rounded-md hover:bg-white hover:text-blue-600 transition">Đóng góp tài liệu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-gray-800 text-white">
+        <div class="container mx-auto px-4">
+            <div class="footer-content grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="footer-about">
+                    <div class="footer-logo flex items-center space-x-2">
+                        <i class="fas fa-book-open"></i>
+                        <span class="text-lg font-bold">Di Sản Việt</span>
+                    </div>
+                    <p class="mt-2">Nền tảng bảo tồn và phát huy giá trị di sản văn hóa Việt Nam</p>
+                </div>
+
+                <div class="footer-links">
+                    <h3 class="text-lg font-semibold">Khám phá</h3>
+                    <ul class="mt-2 space-y-2">
+                        <li><a href="collections.html" class="hover:text-blue-400">Bộ sưu tập</a></li>
+                        <li><a href="map.html" class="hover:text-blue-400">Bản đồ di sản</a></li>
+                        <li><a href="stories.html" class="hover:text-blue-400">Câu chuyện</a></li>
+                        <li><a href="virtual-museum.html" class="hover:text-blue-400">Bảo tàng ảo</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3 class="text-lg font-semibold">Tham gia</h3>
+                    <ul class="mt-2 space-y-2">
+                        <li><a href="contribute.html" class="hover:text-blue-400">Đóng góp tài liệu</a></li>
+                        <li><a href="forum.html" class="hover:text-blue-400">Diễn đàn</a></li>
+                        <li><a href="events.html" class="hover:text-blue-400">Sự kiện</a></li>
+                        <li><a href="volunteer.html" class="hover:text-blue-400">Tình nguyện viên</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3 class="text-lg font-semibold">Liên hệ</h3>
+                    <ul class="mt-2 space-y-2">
+                        <li><a href="about.html" class="hover:text-blue-400">Về chúng tôi</a></li>
+                        <li><a href="contact.html" class="hover:text-blue-400">Liên hệ</a></li>
+                        <li><a href="privacy.html" class="hover:text-blue-400">Chính sách bảo mật</a></li>
+                        <li><a href="terms.html" class="hover:text-blue-400">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom mt-8 text-center">
+                <p>© <span id="current-year"></span> Di Sản Việt. Tất cả các quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script type="text/babel">
+        // React Component for Forum Posts
+        function ForumApp() {
+            const [posts, setPosts] = React.useState([
+                { id: 1, title: "Bảo tồn nghề dệt thổ cẩm", content: "Tôi muốn chia sẻ về nghề dệt thổ cẩm của dân tộc Tày...", author: "Nguyễn Văn A", date: "2025-05-15" },
+                { id: 2, title: "Lễ hội chùa Hương", content: "Lễ hội chùa Hương có những nét độc đáo nào?", author: "Trần Thị B", date: "2025-05-14" }
+            ]);
+
+            const addPost = (title, content) => {
+                const newPost = {
+                    id: posts.length + 1,
+                    title,
+                    content,
+                    author: "Người dùng ẩn danh",
+                    date: new Date().toISOString().split('T')[0]
+                };
+                setPosts([newPost, ...posts]);
+            };
+
+            return (
+                <div className="space-y-6">
+                    {posts.map(post => (
+                        <div key={post.id} className="bg-white p-6 rounded-lg shadow-md">
+                            <h3 className="text-lg font-semibold text-gray-800">{post.title}</h3>
+                            <p className="text-gray-600 mt-2">{post.content}</p>
+                            <div className="mt-4 text-sm text-gray-500">
+                                <span>Đăng bởi: {post.author}</span> | <span>{post.date}</span>
+                            </div>
+                            <button className="mt-4 text-blue-600 hover:underline">Xem thêm <i className="fas fa-arrow-right"></i></button>
+                        </div>
+                    ))}
+                </div>
+            );
+        }
+
+        // Render React component
+        ReactDOM.render(<ForumApp />, document.getElementById('forum-posts'));
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Handle new post submission
+        document.getElementById('submit-post').addEventListener('click', () => {
+            const title = document.getElementById('post-title').value;
+            const content = document.getElementById('post-content').value;
+
+            if (title && content) {
+                ReactDOM.render(<ForumApp />, document.getElementById('forum-posts')); // Re-render to trigger addPost
+                document.getElementById('post-title').value = '';
+                document.getElementById('post-content').value = '';
+                alert('Bài thảo luận của bạn đã được đăng!');
+            } else {
+                alert('Vui lòng điền tiêu đề và nội dung.');
+            }
+        });
+    </script>
+</body>
+</html>

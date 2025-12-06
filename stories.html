@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câu chuyện - Di Sản Việt</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Tailwind CSS CDN for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- React and Babel CDNs -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-book-open"></i>
+                <h1>Di Sản Việt</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="collections.html">Bộ sưu tập</a></li>
+                    <li><a href="map.html">Bản đồ di sản</a></li>
+                    <li><a href="stories.html" class="active">Câu chuyện</a></li>
+                    <li><a href="contribute.html">Đóng góp</a></li>
+                    <li><a href="about.html">Giới thiệu</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stories Section -->
+    <section class="stories py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="section-header text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800">Câu chuyện di sản</h2>
+                <p class="text-lg text-gray-600">Khám phá những câu chuyện đầy cảm hứng về di sản văn hóa Việt Nam, được chia sẻ bởi cộng đồng yêu văn hóa.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <!-- New Story Form -->
+                <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Chia sẻ câu chuyện của bạn</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="story-title" class="block text-sm font-medium text-gray-700">Tiêu đề câu chuyện</label>
+                            <input type="text" id="story-title" class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Nhập tiêu đề câu chuyện">
+                        </div>
+                        <div>
+                            <label for="story-author" class="block text-sm font-medium text-gray-700">Tên người chia sẻ (tùy chọn)</label>
+                            <input type="text" id="story-author" class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Nhập tên của bạn (hoặc để trống)">
+                        </div>
+                        <div>
+                            <label for="story-content" class="block text-sm font-medium text-gray-700">Nội dung câu chuyện</label>
+                            <textarea id="story-content" rows="6" class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Kể câu chuyện của bạn về di sản văn hóa"></textarea>
+                        </div>
+                        <div class="text-right">
+                            <button id="submit-story" class="btn primary-btn inline-block px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">Chia sẻ câu chuyện</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stories List -->
+                <div id="stories-list" class="space-y-6"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta py-12 bg-blue-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold">Lan tỏa giá trị di sản qua những câu chuyện</h2>
+            <p class="text-lg mt-2">Mỗi câu chuyện là một mảnh ghép quý giá, góp phần gìn giữ và tôn vinh văn hóa Việt Nam.</p>
+            <div class="mt-6">
+                <a href="contribute.html" class="btn outline-white-btn inline-block px-6 py-3 border border-white text-white rounded-md hover:bg-white hover:text-blue-600 transition">Đóng góp tài liệu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-gray-800 text-white">
+        <div class="container mx-auto px-4">
+            <div class="footer-content grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="footer-about">
+                    <div class="footer-logo flex items-center space-x-2">
+                        <i class="fas fa-book-open"></i>
+                        <span class="text-lg font-bold">Di Sản Việt</span>
+                    </div>
+                    <p class="mt-2">Nền tảng bảo tồn và phát huy giá trị di sản văn hóa Việt Nam</p>
+                </div>
+
+                <div class="footer-links">
+                    <h3 class="text-lg font-semibold">Khám phá</h3>
+                    <ul class="mt-2 space-y-2">
+                        <li><a href="collections.html" class="hover:text-blue-400">Bộ sưu tập</a></li>
+                        <li><a href="map.html" class="hover:text-blue-400">Bản đồ di sản</a></li>
+                        <li><a href="stories.html" class="hover:text-blue-400">Câu chuyện</a></li>
+                        <li><a href="virtual-museum.html" class="hover:text-blue-400">Bảo tàng ảo</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3 class="text-lg font-semibold">Tham gia</h3>
+                    <ul class="mt-2 space-y-2">
+                        <li><a href="contribute.html" class="hover:text-blue-400">Đóng góp tài liệu</a></li>
+                        <li><a href="forum.html" class="hover:text-blue-400">Diễn đàn</a></li>
+                        <li><a href="events.html" class="hover:text-blue-400">Sự kiện</a></li>
+                        <li><a href="volunteer.html" class="hover:text-blue-400">Tình nguyện viên</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3 class="text-lg font-semibold">Liên hệ</h3>
+                    <ul class="mt-2 space-y-2">
+                        <li><a href="about.html" class="hover:text-blue-400">Về chúng tôi</a></li>
+                        <li><a href="contact.html" class="hover:text-blue-400">Liên hệ</a></li>
+                        <li><a href="privacy.html" class="hover:text-blue-400">Chính sách bảo mật</a></li>
+                        <li><a href="terms.html" class="hover:text-blue-400">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom mt-8 text-center">
+                <p>© <span id="current-year"></span> Di Sản Việt. Tất cả các quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script type="text/babel">
+        // React Component for Stories
+        function StoriesApp() {
+            const [stories, setStories] = React.useState([
+                {
+                    id: 1,
+                    title: "Hành trình khám phá đình làng Việt",
+                    content: "Tôi đã đi qua hàng chục ngôi đình ở miền Bắc, mỗi nơi đều mang một câu chuyện riêng về lịch sử và văn hóa cộng đồng...",
+                    author: "Nguyễn Văn Hùng",
+                    date: "2025-05-10"
+                },
+                {
+                    id: 2,
+                    title: "Ký ức về điệu múa Chăm",
+                    content: "Lớn lên ở Ninh Thuận, tôi luôn bị cuốn hút bởi những điệu múa Chăm trong các lễ hội Katê. Chúng là linh hồn của văn hóa Chăm...",
+                    author: "Trần Thị Mai",
+                    date: "2025-05-12"
+                }
+            ]);
+
+            const addStory = (title, content, author) => {
+                const newStory = {
+                    id: stories.length + 1,
+                    title,
+                    content,
+                    author: author || "Người dùng ẩn danh",
+                    date: new Date().toISOString().split('T')[0]
+                };
+                setStories([newStory, ...stories]);
+            };
+
+            return (
+                <div className="space-y-6">
+                    {stories.map(story => (
+                        <div key={story.id} className="bg-white p-6 rounded-lg shadow-md">
+                            <h3 className="text-lg font-semibold text-gray-800">{story.title}</h3>
+                            <p className="text-gray-600 mt-2">{story.content}</p>
+                            <div className="mt-4 text-sm text-gray-500">
+                                <span>Đăng bởi: {story.author}</span> | <span>{story.date}</span>
+                            </div>
+                            <button className="mt-4 text-blue-600 hover:underline">Đọc thêm <i className="fas fa-arrow-right"></i></button>
+                        </div>
+                    ))}
+                </div>
+            );
+        }
+
+        // Render React component
+        ReactDOM.render(<StoriesApp />, document.getElementById('stories-list'));
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Handle new story submission
+        document.getElementById('submit-story').addEventListener('click', () => {
+            const title = document.getElementById('story-title').value;
+            const author = document.getElementById('story-author').value;
+            const content = document.getElementById('story-content').value;
+
+            if (title && content) {
+                ReactDOM.render(<StoriesApp />, document.getElementById('stories-list')); // Re-render to trigger addStory
+                document.getElementById('story-title').value = '';
+                document.getElementById('story-author').value = '';
+                document.getElementById('story-content').value = '';
+                alert('Cảm ơn bạn đã chia sẻ câu chuyện! Câu chuyện của bạn đã được đăng.');
+            } else {
+                alert('Vui lòng điền tiêu đề và nội dung câu chuyện.');
+            }
+        });
+    </script>
+</body>
+</html>

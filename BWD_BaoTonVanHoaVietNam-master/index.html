@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Di Sản Việt - Bảo tồn văn hóa và di sản Việt Nam</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <!-- Font Awesome cho icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-book-open"></i>
+                <h1>Di Sản Việt</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Trang chủ</a></li>
+                    <li><a href="collections.html">Bộ sưu tập</a></li>
+                    <li><a href="map.html">Bản đồ di sản</a></li>
+                    <li><a href="stories.html">Câu chuyện</a></li>
+                    <li><a href="contribute.html">Đóng góp</a></li>
+                    <li><a href="about.html">Giới thiệu</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: linear-gradient(rgba(37, 33, 34, 0.6), rgba(90, 30, 30, 0.6)), url('assets/vietnam-culture.png'); background-size: cover; background-position: center;">
+    <div class="hero-content">
+        <h1>Bảo tồn di sản văn hóa Việt Nam</h1>
+        <p>Khám phá, tìm hiểu và góp phần bảo tồn những giá trị văn hóa truyền thống quý báu của dân tộc</p>
+        <div class="hero-buttons">
+            <a href="collections.html" class="btn primary-btn">Khám phá di sản</a>
+            <a href="contribute.html" class="btn secondary-btn">Đóng góp tài liệu</a>
+        </div>
+    </div>
+</section>
+
+    <!-- Featured Collections -->
+    <section class="featured-collections">
+        <div class="container">
+            <div class="section-header">
+                <h2>Bộ sưu tập nổi bật</h2>
+                <p>Khám phá những bộ sưu tập di sản văn hóa đặc sắc từ khắp mọi miền đất nước</p>
+            </div>
+
+            <div class="collections-grid">
+                <div class="collection-card">
+                    <div class="collection-image">
+                        <img src="assets/craft.png" alt="Nghề thủ công truyền thống">
+                    </div>
+                    <div class="collection-content">
+                        <h3>Nghề thủ công truyền thống</h3>
+                        <p>Khám phá các nghề thủ công đã tồn tại hàng trăm năm qua các thế hệ</p>
+                        <a href="collections/craft.html" class="read-more">Xem thêm <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="collection-card">
+                    <div class="collection-image">
+                        <img src="assets/architecture.png" alt="Kiến trúc cổ Việt Nam">
+                    </div>
+                    <div class="collection-content">
+                        <h3>Kiến trúc cổ Việt Nam</h3>
+                        <p>Bộ sưu tập về đình, chùa, nhà cổ và các công trình kiến trúc độc đáo</p>
+                        <a href="collections/architecture.html" class="read-more">Xem thêm <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="collection-card">
+                    <div class="collection-image">
+                        <img src="assets/festival.png" alt="Lễ hội dân gian">
+                    </div>
+                    <div class="collection-content">
+                        <h3>Lễ hội dân gian</h3>
+                        <p>Tìm hiểu về các lễ hội truyền thống và ý nghĩa văn hóa đằng sau</p>
+                        <a href="collections/festival.html" class="read-more">Xem thêm <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="view-all">
+                <a href="collections.html" class="btn primary-btn">Xem tất cả bộ sưu tập</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Map Preview -->
+    <section class="map-preview">
+        <div class="container">
+            <div class="map-content">
+                <div class="map-info">
+                    <h2>Bản đồ di sản văn hóa</h2>
+                    <p>Khám phá vị trí của các di sản văn hóa trên khắp Việt Nam thông qua bản đồ tương tác. Tìm hiểu về lịch sử, ý nghĩa và giá trị của từng di sản.</p>
+                    <ul class="map-features">
+                        <li><i class="fas fa-map-marker-alt"></i> Hơn 300 điểm di sản được đánh dấu</li>
+                        <li><i class="fas fa-video"></i> Hình ảnh và video 360° của các địa điểm</li>
+                        <li><i class="fas fa-book-open"></i> Thông tin chi tiết và lịch sử</li>
+                    </ul>
+                    <a href="map.html" class="btn primary-btn">Khám phá bản đồ</a>
+                </div>
+                <div class="map-image">
+                    <img src="assets/images/map-preview.jpg" alt="Bản đồ di sản văn hóa">
+                    <div class="map-overlay">Bản đồ tương tác</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community">
+        <div class="container">
+            <div class="section-header">
+                <h2>Cộng đồng bảo tồn văn hóa</h2>
+                <p>Tham gia cùng cộng đồng những người đam mê và nỗ lực bảo tồn di sản văn hóa Việt Nam</p>
+            </div>
+
+            <div class="community-features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Diễn đàn thảo luận</h3>
+                    <p>Tham gia thảo luận, chia sẻ kiến thức và kết nối với mọi người</p>
+                    <a href="forum.html" class="btn outline-btn">Tham gia ngay</a>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Đóng góp tài liệu</h3>
+                    <p>Chia sẻ tài liệu, hình ảnh, video hoặc câu chuyện về di sản văn hóa mà bạn biết</p>
+                    <a href="contribute.html" class="btn outline-btn">Đóng góp</a>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Sự kiện trực tuyến</h3>
+                    <p>Tham gia các buổi thảo luận, hội thảo và sự kiện trực tuyến về văn hóa truyền thống</p>
+                    <a href="events.html" class="btn outline-btn">Xem lịch sự kiện</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <h2>Hãy cùng chung tay bảo tồn di sản văn hóa</h2>
+            <p>Di sản văn hóa là tài sản vô giá của dân tộc. Mỗi đóng góp của bạn đều góp phần gìn giữ và phát huy những giá trị truyền thống quý báu.</p>
+            <div class="cta-buttons">
+                <a href="contribute.html" class="btn white-btn">Đóng góp ngay</a>
+                <a href="about.html" class="btn outline-white-btn">Tìm hiểu thêm</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <i class="fas fa-book-open"></i>
+                        <span>Di Sản Việt</span>
+                    </div>
+                    <p>Nền tảng bảo tồn và phát huy giá trị di sản văn hóa Việt Nam</p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Khám phá</h3>
+                    <ul>
+                        <li><a href="collections.html">Bộ sưu tập</a></li>
+                        <li><a href="map.html">Bản đồ di sản</a></li>
+                        <li><a href="stories.html">Câu chuyện</a></li>
+                        <li><a href="virtual-museum.html">Bảo tàng ảo</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Tham gia</h3>
+                    <ul>
+                        <li><a href="contribute.html">Đóng góp tài liệu</a></li>
+                        <li><a href="forum.html">Diễn đàn</a></li>
+                        <li><a href="events.html">Sự kiện</a></li>
+                        <li><a href="volunteer.html">Tình nguyện viên</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Liên hệ</h3>
+                    <ul>
+                        <li><a href="about.html">Về chúng tôi</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                        <li><a href="privacy.html">Chính sách bảo mật</a></li>
+                        <li><a href="terms.html">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Di Sản Việt. Tất cả các quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

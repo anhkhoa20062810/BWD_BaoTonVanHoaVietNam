@@ -1,0 +1,82 @@
+/* Responsive Styles */
+
+/* Tablets */
+@media (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .map-content {
+        flex-direction: column;
+    }
+
+    .map-info, .map-image {
+        width: 100%;
+    }
+}
+
+/* Mobile Phones */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    nav {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 80%;
+        height: calc(100vh - 70px);
+        background-color: var(--light-text);
+        transition: var(--transition);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    nav.active {
+        left: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .cta h2 {
+        font-size: 2rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+}
+
+/* Small Mobile Phones */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .section-header h2, .map-info h2, .cta h2 {
+        font-size: 1.8rem;
+    }
+}

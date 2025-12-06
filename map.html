@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bản đồ di sản - Di Sản Việt</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <!-- Font Awesome cho icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        /* Map specific styles */
+        .map-page {
+            display: flex;
+            flex-direction: column;
+            min-height: calc(100vh - 70px);
+        }
+        
+        .map-container {
+            display: flex;
+            flex: 1;
+        }
+        
+        .map-sidebar {
+            width: 350px;
+            background-color: white;
+            border-right: 1px solid var(--border-color);
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .map-view {
+            flex: 1;
+            height: 100%;
+            min-height: 500px;
+        }
+        
+        #map-container {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .map-search-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        #map-search {
+            width: 100%;
+            padding: 10px 15px;
+            padding-left: 40px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .map-search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray-text);
+        }
+        
+        .map-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            background-color: #f5f5f5;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .site-item {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .site-item:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .site-item h3 {
+            margin-bottom: 5px;
+        }
+        
+        .site-type {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .site-description {
+            font-size: 0.9rem;
+            color: var(--gray-text);
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            color: var(--gray-text);
+        }
+        
+        /* Map popup styles */
+        .map-popup {
+            max-width: 250px;
+        }
+        
+        .map-popup h3 {
+            margin-bottom: 5px;
+        }
+        
+        .map-popup .site-type {
+            margin-bottom: 8px;
+        }
+        
+        .popup-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .popup-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-book-open"></i>
+                <h1>Di Sản Việt</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="collections.html">Bộ sưu tập</a></li>
+                    <li><a href="map.html" class="active">Bản đồ di sản</a></li>
+                    <li><a href="stories.html">Câu chuyện</a></li>
+                    <li><a href="contribute.html">Đóng góp</a></li>
+                    <li><a href="about.html">Giới thiệu</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Map Page -->
+    <div class="map-page">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Bản đồ di sản văn hóa Việt Nam</h1>
+                <p>Khám phá vị trí của các di sản văn hóa trên khắp Việt Nam thông qua bản đồ tương tác. Tìm hiểu về lịch sử, ý nghĩa và giá trị của từng di sản.</p>
+            </div>
+        </section>
+
+        <!-- Map Container -->
+        <div class="map-container">
+            <!-- Sidebar -->
+            <div class="map-sidebar">
+                <div class="map-search-container">
+                    <i class="fas fa-search map-search-icon"></i>
+                    <input type="text" id="map-search" placeholder="Tìm kiếm địa điểm...">
+                </div>
+                
+                <div class="map-filters">
+                    <button class="filter-btn active" data-filter="all">Tất cả</button>
+                    <button class="filter-btn" data-filter="architecture">Kiến trúc</button>
+                    <button class="filter-btn" data-filter="natural">Thiên nhiên</button>
+                    <button class="filter-btn" data-filter="intangible">Phi vật thể</button>
+                </div>
+                
+                <div id="site-list">
+                    <!-- Site list will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Map View -->
+            <div class="map-view">
+                <div id="map-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <i class="fas fa-book-open"></i>
+                        <span>Di Sản Việt</span>
+                    </div>
+                    <p>Nền tảng bảo tồn và phát huy giá trị di sản văn hóa Việt Nam</p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Khám phá</h3>
+                    <ul>
+                        <li><a href="collections.html">Bộ sưu tập</a></li>
+                        <li><a href="map.html">Bản đồ di sản</a></li>
+                        <li><a href="stories.html">Câu chuyện</a></li>
+                        <li><a href="virtual-museum.html">Bảo tàng ảo</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Tham gia</h3>
+                    <ul>
+                        <li><a href="contribute.html">Đóng góp tài liệu</a></li>
+                        <li><a href="forum.html">Diễn đàn</a></li>
+                        <li><a href="events.html">Sự kiện</a></li>
+                        <li><a href="volunteer.html">Tình nguyện viên</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Liên hệ</h3>
+                    <ul>
+                        <li><a href="about.html">Về chúng tôi</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                        <li><a href="privacy.html">Chính sách bảo mật</a></li>
+                        <li><a href="terms.html">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Di Sản Việt. Tất cả các quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <!-- Map JavaScript -->
+    <script src="js/map.js"></script>
+</body>
+</html>
